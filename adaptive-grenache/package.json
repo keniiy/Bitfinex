@@ -1,0 +1,28 @@
+{
+  "name": "adaptive-grenache",
+  "version": "1.0.0",
+  "description": "Adaptive Grenache Client with Gossip-Based Peer Health Hints",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "grenache",
+    "dht",
+    "distributed-systems"
+  ],
+  "author": "Kehinde Kehinde",
+  "license": "ISC",
+  "packageManager": "pnpm@10.23.0",
+  "dependencies": {
+    "grenache-grape": "^1.0.0",
+    "grenache-nodejs-http": "^1.0.1",
+    "grenache-nodejs-link": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
