@@ -11,7 +11,7 @@ export function parseArray(
 ): string[] {
   if (!value) return defaultValue;
   return value
-    .split(",")
+    .split(',')
     .map((s) => s.trim())
     .filter((s) => s.length > 0);
 }
@@ -56,5 +56,5 @@ export function parseBoolean(
   defaultValue: boolean
 ): boolean {
   if (!value) return defaultValue;
-  return value.toLowerCase() === "true" || value === "1";
+  return value.toLowerCase() === 'true' || value === '1';
 }
