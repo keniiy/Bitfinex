@@ -12,13 +12,19 @@ declare module 'grenache-grape' {
     check_maxPayloadSize?: number;
   }
 
+  export interface AnnounceData {
+    service?: string;
+    port?: number;
+    [key: string]: unknown;
+  }
+
   export class Grape {
     constructor(options: GrapeOptions);
     start(): void;
     stop(callback?: () => void): void;
     on(event: 'ready', callback: () => void): void;
     on(event: 'node', callback: (node: string) => void): void;
-    on(event: 'announce', callback: (announce: any) => void): void;
-    on(event: string, callback: (...args: any[]) => void): void;
+    on(event: 'announce', callback: (announce: AnnounceData) => void): void;
+    on(event: string, callback: (...args: unknown[]) => void): void;
   }
 }
