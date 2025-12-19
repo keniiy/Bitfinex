@@ -17,7 +17,7 @@ This project implements a production-ready adaptive client for Grenache's decent
 
 ## 🏗️ Architecture
 
-```
+```text
                      ┌──────────────────┐
                      │   Client (Smart)  │
                      │                  │
@@ -66,6 +66,7 @@ cp .env.example .env
 #### 1. Start Grape Cluster (DHT Network)
 
 **Terminal 1 - First Grape Node:**
+
 ```bash
 pnpm grape:1
 # or
@@ -73,6 +74,7 @@ grape --dp 20001 --aph 30001 --bn ''
 ```
 
 **Terminal 2 - Second Grape Node:**
+
 ```bash
 pnpm grape:2
 # or
@@ -80,6 +82,7 @@ grape --dp 20002 --aph 30002 --bn '127.0.0.1:20001'
 ```
 
 **Terminal 3 - Third Grape Node (optional):**
+
 ```bash
 pnpm grape:3
 # or
@@ -89,6 +92,7 @@ grape --dp 20003 --aph 30003 --bn '127.0.0.1:20001'
 #### 2. Start Worker Services
 
 **Terminal 4:**
+
 ```bash
 pnpm worker:start
 ```
@@ -96,6 +100,7 @@ pnpm worker:start
 #### 3. Start Adaptive Client
 
 **Terminal 5:**
+
 ```bash
 pnpm client:start
 ```
@@ -107,6 +112,7 @@ All configuration is managed through environment variables. See `.env.example` f
 ### Key Configuration Sections
 
 #### Grape/DHT Configuration
+
 ```bash
 GRAPE_DHT_PORT=20001          # DHT listening port
 GRAPE_API_PORT=30001          # HTTP API port
@@ -115,6 +121,7 @@ GRAPE_CONCURRENCY=32          # DHT concurrency
 ```
 
 #### Worker Configuration
+
 ```bash
 WORKER_SERVICE_NAME=job_service
 WORKER_PORT=1337
@@ -122,6 +129,7 @@ WORKER_ANNOUNCE_INTERVAL=5000
 ```
 
 #### Client Configuration
+
 ```bash
 CLIENT_REQUEST_TIMEOUT=5000
 CLIENT_MAX_RETRIES=3
@@ -129,6 +137,7 @@ CLIENT_RETRY_DELAY=1000
 ```
 
 #### Metrics Configuration
+
 ```bash
 METRICS_LATENCY_WEIGHT=0.4
 METRICS_ERROR_WEIGHT=0.3
@@ -137,6 +146,7 @@ METRICS_FRESHNESS_WEIGHT=0.1
 ```
 
 #### Circuit Breaker Configuration
+
 ```bash
 CIRCUIT_BREAKER_FAILURE_THRESHOLD=5
 CIRCUIT_BREAKER_COOLDOWN_MS=10000
@@ -144,6 +154,7 @@ CIRCUIT_BREAKER_HALF_OPEN_MAX_REQUESTS=1
 ```
 
 #### Gossip Configuration
+
 ```bash
 GOSSIP_HINT_TTL=60000
 GOSSIP_PUBLISH_INTERVAL=5000
@@ -153,24 +164,24 @@ GOSSIP_DECAY_FACTOR=0.5
 ### Using Configuration in Code
 
 ```typescript
-import { config, grape, worker, client } from './config/index.js'
+import { config, grape, worker, client } from './config/index.js';
 
 // Access full config
-console.log(config.grape.dht_port)
+console.log(config.grape.dht_port);
 
 // Access specific sections
-console.log(grape.dht_port)
-console.log(worker.service_name)
-console.log(client.request_timeout)
+console.log(grape.dht_port);
+console.log(worker.service_name);
+console.log(client.request_timeout);
 
 // Validate configuration
-import { validateConfig } from './config/index.js'
-validateConfig()
+import { validateConfig } from './config/index.js';
+validateConfig();
 ```
 
 ## 📁 Project Structure
 
-```
+```text
 adaptive-grenache/
 ├── client/                 # Adaptive client implementation
 │   ├── client.ts          # Main client entry point
@@ -262,6 +273,7 @@ See `test/test-scenarios.ts` for failure injection and validation tests.
 ### Peer Scoring
 
 Each peer receives a score based on:
+
 - **Latency**: Average response time
 - **Error Rate**: Percentage of failed requests
 - **Timeout Rate**: Percentage of timed-out requests
@@ -276,6 +288,7 @@ Each peer receives a score based on:
 ### Gossip Hints
 
 Clients share peer health hints via Grenache pub/sub:
+
 - **DEGRADED**: Peer is performing poorly
 - **HEALTHY**: Peer is performing well
 - Hints decay over time and never override local metrics
@@ -305,6 +318,7 @@ Check your `.env` file matches `.env.example` and all required values are set.
 ## 🤝 Contributing
 
 This is a learning project. Feel free to:
+
 - Experiment with different routing algorithms
 - Add new metrics
 - Improve gossip protocol
@@ -328,7 +342,6 @@ ISC
 
 ---
 
-**Built with ❤️ for learning distributed systems**
+## Built with ❤️ for learning distributed systems
 
 For the complete learning guide, see [../LEARNING_GUIDE.md](../LEARNING_GUIDE.md)
-

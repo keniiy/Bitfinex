@@ -15,7 +15,7 @@ This repository contains a complete learning journey through distributed systems
 
 ## 📁 Repository Structure
 
-```
+```text
 Bitfinex/
 ├── adaptive-grenache/          # Main project: Adaptive Grenache Client
 │   ├── client/                 # Smart client with routing intelligence
@@ -33,6 +33,7 @@ Bitfinex/
 ### 1. Read the Learning Guide
 
 Start with **[LEARNING_GUIDE.md](./LEARNING_GUIDE.md)** for a complete step-by-step breakdown of:
+
 - What you're learning
 - Why each concept matters
 - How to implement each step
@@ -47,6 +48,7 @@ cd adaptive-grenache
 ```
 
 See **[adaptive-grenache/README.md](./adaptive-grenache/README.md)** for:
+
 - Quick start instructions
 - Configuration guide
 - Architecture overview
@@ -55,21 +57,25 @@ See **[adaptive-grenache/README.md](./adaptive-grenache/README.md)** for:
 ## 📚 Learning Path
 
 ### Phase 1: Foundation (Steps 0-3)
+
 - Project setup and structure
 - Grape cluster (DHT basics)
 - Worker services (RPC fundamentals)
 - Basic client (baseline)
 
 ### Phase 2: Intelligence (Steps 4-6)
+
 - Local metrics engine
 - Peer scoring engine
 - Circuit breaker implementation
 
 ### Phase 3: Decentralized Learning (Steps 7-8)
+
 - Gossip pub/sub system
 - Decay and recovery mechanisms
 
 ### Phase 4: Production (Steps 9-10)
+
 - Failure injection and testing
 - Documentation and architecture
 
@@ -169,7 +175,6 @@ ISC
 
 ---
 
-**Happy Learning! 🚀**
+## Happy Learning! 🚀
 
 Start with the [LEARNING_GUIDE.md](./LEARNING_GUIDE.md) to begin your journey.
-

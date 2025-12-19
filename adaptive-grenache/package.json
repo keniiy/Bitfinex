@@ -5,7 +5,17 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "grape:1": "tsx grape/start-grape.ts 20001 30001",
+    "grape:2": "tsx grape/start-grape.ts 20002 30002 127.0.0.1:20001",
+    "grape:3": "tsx grape/start-grape.ts 20003 30003 127.0.0.1:20001",
+    "worker:start": "tsx worker/worker.ts",
+    "client:start": "tsx client/client.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{ts,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,json,md}\"",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "grenache",
@@ -16,13 +26,22 @@
   "license": "ISC",
   "packageManager": "pnpm@10.23.0",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "grenache-grape": "^1.0.0",
     "grenache-nodejs-http": "^1.0.1",
     "grenache-nodejs-link": "^1.0.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@types/node": "^25.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.7.4",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.0"
   }
 }
